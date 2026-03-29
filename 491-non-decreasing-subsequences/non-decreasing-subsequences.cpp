@@ -6,10 +6,11 @@ public:
         unordered_set<int>st;
         for(int i=idx;i<n;i++){
             if((curr.empty()||nums[i]>=curr.back())&&(st.find(nums[i])==st.end())){
-                st.insert(nums[i]);
+                
                 curr.push_back(nums[i]);
                 backtrack(nums,i+1,curr,result);
                 curr.pop_back();
+                st.insert(nums[i]);
               
 
             }
