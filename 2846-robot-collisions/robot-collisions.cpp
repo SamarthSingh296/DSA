@@ -16,13 +16,13 @@ public:
         sort(robots.begin(),robots.end(),[](auto &a,auto&b){
             return a.pos<b.pos;
         });
-        stack<pair<int,int>>st;
+        stack<int>st;
         for(int i=0;i<n;i++){
-            if(robots[i].dir=='R')st.push({robots[i].pos,i});
+            if(robots[i].dir=='R')st.push(i);
             else{
 
                 while(!st.empty()&&robots[i].health>0){
-                    int j=st.top().second;
+                    int j=st.top();
                     if(robots[i].health>robots[j].health){
                         robots[i].health--;
                         robots[j].health=0;
